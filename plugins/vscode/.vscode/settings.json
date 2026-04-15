@@ -1,0 +1,46 @@
+{
+  // ─── GitHub Copilot ───────────────────────────────────────────────────────
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false
+  },
+  // Ask Copilot to prefer completions that match existing patterns
+  "github.copilot.advanced": {
+    "inlineSuggestCount": 3,
+    "length": 500
+  },
+  // Copilot Chat — align with spec behaviours
+  "github.copilot.chat.followUps": "always",
+  "github.copilot.chat.localeOverride": "en",
+  "github.copilot.chat.useProjectTemplates": true,
+
+  // ─── Codeium ─────────────────────────────────────────────────────────────
+  "codeium.enableConfig": {
+    "*": true,
+    "plaintext": false
+  },
+
+  // ─── Tabnine ─────────────────────────────────────────────────────────────
+  "tabnine.experimentalAutoImports": false,
+  "tabnine.cloudTier": true,
+
+  // ─── Continue (open-source AI plugin) ────────────────────────────────────
+  // Configure in ~/.continue/config.json — see plugins/vscode/continue-config.json
+
+  // ─── Amazon Q ────────────────────────────────────────────────────────────
+  "aws.amazonQ.workspaceContext": true,
+
+  // ─── General editor settings that support spec compliance ─────────────────
+  // Ensure diffs are minimal and readable
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+
+  // Show inline hints so AI completions are clearly marked
+  "editor.inlayHints.enabled": "on",
+
+  // Keep git diffs clean — no auto-formatting changing unrelated lines
+  "editor.defaultFormatter": null
+}

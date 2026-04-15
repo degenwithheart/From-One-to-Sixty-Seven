@@ -1,0 +1,44 @@
+name: Spec Improvement
+description: Propose a change, new rule, or new variant.
+title: "[SPEC] "
+labels: ["spec-improvement"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Wording clarification
+        - Rule strengthening
+        - Rule relaxation
+        - New rule
+        - New variant
+        - New stack addendum
+        - New LLM assistant file
+        - New IDE plugin config
+        - Documentation / examples
+    validations:
+      required: true
+  - type: input
+    id: rule
+    attributes:
+      label: Which rule or section? (if applicable)
+      placeholder: "Rule 4, variants/ENTERPRISE.md, stacks/python.md"
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is the problem with the current state?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this an improvement?
+    validations:
+      required: true

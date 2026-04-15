@@ -1,0 +1,39 @@
+name: Bug Report — Rule Produces Bad Outcome
+description: A spec rule caused an LLM to behave counterproductively.
+title: "[BUG] Rule X — "
+labels: ["bug", "spec-quality"]
+body:
+  - type: input
+    id: rule
+    attributes:
+      label: Which rule is affected?
+      placeholder: "Rule 3.1 — Minimize Diff Size"
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Which LLM / tool?
+      placeholder: "Claude Sonnet, GPT-4o, Cursor, etc."
+  - type: textarea
+    id: request
+    attributes:
+      label: What was the task?
+    validations:
+      required: true
+  - type: textarea
+    id: bad-outcome
+    attributes:
+      label: What bad outcome occurred?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Proposed spec change (optional)

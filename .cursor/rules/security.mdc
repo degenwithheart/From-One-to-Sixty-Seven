@@ -1,0 +1,46 @@
+---
+description: Security rules applied to all files touching auth, crypto, network, or user input
+globs: ["**/auth/**", "**/api/**", "**/routes/**", "**/middleware/**", "**/security/**"]
+alwaysApply: false
+---
+
+# Security Rules
+
+These rules activate for files in auth, API, route, middleware, and security directories.
+
+## Input Validation
+
+All external input is untrusted. Validate at the boundary using allowlists.
+Reject and log unexpected input — never silently discard it.
+Never pass raw input to SQL, shell, template engines, or file system operations.
+
+## Secrets
+
+No secrets in code. Use environment variables or a secrets manager.
+No secrets in log output, error messages, or API responses.
+No secrets in test files, fixtures, or example configs.
+
+## SQL
+
+Parameterized queries only. Never construct SQL via string formatting.
+
+## File Paths
+
+Canonicalize paths before use. Reject paths containing `..` sequences.
+Never join user-supplied input directly into file paths.
+
+## Auth
+
+On any privilege change, regenerate session identifiers.
+Check authorization at every layer — not only at the API gateway.
+Apply principle of least privilege to all service accounts and roles.
+
+## Security Note Block
+
+For any change touching these files, include:
+```
+SECURITY NOTE:
+- Boundary affected:
+- Attack vectors considered:
+- Mitigations applied:
+```

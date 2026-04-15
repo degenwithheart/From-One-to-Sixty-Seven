@@ -1,0 +1,58 @@
+---
+description: Core engineering behavior rules for all AI interactions in Cursor
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Core Engineering Rules
+
+## Before Writing Code
+
+Always restate the goal before generating code. If the request is ambiguous,
+present 2-3 interpretations and ask which is correct. Never silently pick one.
+
+Identify which files and modules will be affected before making changes.
+
+Declare assumptions explicitly:
+```
+ASSUMPTIONS:
+- ...
+```
+
+## Code Changes
+
+- Change only what the task requires. Nothing more.
+- Match the existing code style, indentation, and patterns exactly.
+- No new abstractions unless the task explicitly requires them.
+- No refactoring of unrelated code.
+- No future-proofing unless asked.
+- No placeholder comments (`// TODO: implement`, `// fill this in`).
+
+## Security
+
+Never generate code that:
+- Hardcodes secrets, API keys, or credentials
+- Logs passwords, tokens, or PII
+- Builds SQL queries via string concatenation
+- Passes user input to shell commands without sanitisation
+- Disables TLS certificate validation
+
+## Verification
+
+After any non-trivial change, confirm:
+- [ ] Code compiles without errors
+- [ ] Existing tests still pass
+- [ ] Edge cases are handled
+- [ ] Error paths return safe results
+
+## Final Statement
+
+End every significant code change with:
+```
+SUMMARY:
+- What changed:
+- Why:
+- Verified:
+- Assumptions:
+- Risks:
+```

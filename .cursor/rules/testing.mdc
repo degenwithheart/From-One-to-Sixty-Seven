@@ -1,0 +1,39 @@
+---
+description: Test-oriented rules applied to test files and spec files
+globs: ["**/*.test.*", "**/*.spec.*", "**/tests/**", "**/__tests__/**"]
+alwaysApply: false
+---
+
+# Testing Rules
+
+## Test File Standards
+
+Test names must describe behaviour, not implementation:
+- Good: `test_user_locked_after_five_failed_logins`
+- Bad: `test_login_function`
+
+Tests must be independent:
+- No shared mutable state between test cases
+- Each test sets up and tears down its own data
+- Each test is runnable in isolation
+
+## Coverage Requirements
+
+Every test file must cover:
+- Happy path (valid inputs, expected outputs)
+- Error path (invalid inputs, expected errors)
+- Edge cases (boundary values, empty inputs, null/nil)
+
+## Bug Fix Tests
+
+For every bug fix, a regression test must exist that:
+1. Fails against the unfixed code
+2. Passes after the fix
+3. Lives permanently in the test suite
+
+## No Placeholder Tests
+
+Never commit:
+- Empty test bodies
+- `pass` / `pending` / `skip` without a tracking issue reference
+- Tests that always pass regardless of implementation

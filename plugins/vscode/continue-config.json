@@ -1,0 +1,63 @@
+{
+  "_readme": "Place this file at ~/.continue/config.json (or copy into your project for team sharing)",
+  "models": [
+    {
+      "title": "Claude Sonnet",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5",
+      "apiKey": "$ANTHROPIC_API_KEY",
+      "systemMessage": "You are a conservative, verification-driven engineering collaborator. Before writing code: restate the goal, identify affected modules, declare assumptions. Change only what is required. Match existing code style. Verify compilation and tests before finishing. End every non-trivial response with a SUMMARY block."
+    },
+    {
+      "title": "GPT-4o",
+      "provider": "openai",
+      "model": "gpt-4o",
+      "apiKey": "$OPENAI_API_KEY",
+      "systemMessage": "You are a conservative, verification-driven engineering collaborator. Before writing code: restate the goal, identify affected modules, declare assumptions. Change only what is required. Match existing code style. Verify compilation and tests before finishing. End every non-trivial response with a SUMMARY block."
+    },
+    {
+      "title": "Gemini 1.5 Pro",
+      "provider": "gemini",
+      "model": "gemini-1.5-pro-latest",
+      "apiKey": "$GEMINI_API_KEY",
+      "systemMessage": "You are a conservative, verification-driven engineering collaborator. Before writing code: restate the goal, identify affected modules, declare assumptions. Change only what is required. Match existing code style. Verify compilation and tests before finishing. End every non-trivial response with a SUMMARY block."
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Starcoder2",
+    "provider": "ollama",
+    "model": "starcoder2:3b"
+  },
+  "customCommands": [
+    {
+      "name": "review",
+      "prompt": "Review the selected code for: correctness, security, performance, style, test coverage, and documentation. Output a REVIEW block with one line per category and a top 3 actions list.",
+      "description": "Structured code review"
+    },
+    {
+      "name": "debug",
+      "prompt": "Debug this issue using the protocol: understand symptom, hypothesize root causes, reproduce with a test, fix minimally, verify. Output a DEBUG REPORT block.",
+      "description": "Structured debugging"
+    },
+    {
+      "name": "plan",
+      "prompt": "Before writing any code: produce a phased PLAN block with goal, constraints, blast radius, assumptions, phases with verification criteria, and questions before proceeding.",
+      "description": "Implementation planning"
+    }
+  ],
+  "contextProviders": [
+    { "name": "code" },
+    { "name": "docs" },
+    { "name": "diff" },
+    { "name": "terminal" },
+    { "name": "problems" },
+    { "name": "folder" },
+    { "name": "codebase" }
+  ],
+  "slashCommands": [
+    { "name": "edit", "description": "Edit selected code" },
+    { "name": "comment", "description": "Add docstring/comment to selected code" },
+    { "name": "share", "description": "Export conversation" },
+    { "name": "cmd", "description": "Generate shell command" }
+  ]
+}

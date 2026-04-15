@@ -1,0 +1,33 @@
+{
+  "name": "from-one-to-sixty-seven",
+  "version": "2.0.0",
+  "description": "Production-grade behavioral contract for AI coding assistants — all major LLMs, stacks, and IDEs",
+  "private": true,
+  "scripts": {
+    "lint": "markdownlint \"**/*.md\" --ignore node_modules",
+    "lint:fix": "markdownlint \"**/*.md\" --ignore node_modules --fix"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.48.0"
+  },
+  "keywords": [
+    "llm",
+    "ai",
+    "claude",
+    "copilot",
+    "cursor",
+    "gemini",
+    "gpt4",
+    "codeium",
+    "tabnine",
+    "aider",
+    "engineering",
+    "spec",
+    "coding-assistant",
+    "agents",
+    "claude-code",
+    "opencode"
+  ],
+  "author": "Degen Serenade <degenwithheart>",
+  "license": "MIT"
+}

@@ -1,0 +1,29 @@
+name: Lint Markdown
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  markdownlint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint "**/*.md" --ignore node_modules --config .markdownlint.json
+
+  check-links:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
+          config-file: ".mlc-config.json"

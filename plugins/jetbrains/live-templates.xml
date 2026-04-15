@@ -1,0 +1,72 @@
+<templateSet group="From One to Sixty-Seven">
+
+  <template name="spec-sum"
+            value="SUMMARY:&#10;- What changed: $WHAT$&#10;- Why: $WHY$&#10;- Verified: $VERIFIED$&#10;- Assumptions: $ASSUMPTIONS$&#10;- Risks: $RISKS$"
+            description="Spec: SUMMARY block"
+            toReformat="false"
+            toShortenFQNames="true">
+    <variable name="WHAT" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="WHY" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="VERIFIED" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="ASSUMPTIONS" expression="" defaultValue="&quot;none&quot;" alwaysStopAt="true"/>
+    <variable name="RISKS" expression="" defaultValue="&quot;none&quot;" alwaysStopAt="true"/>
+    <context><option name="OTHER" value="true"/></context>
+  </template>
+
+  <template name="spec-ass"
+            value="ASSUMPTIONS:&#10;- $ASSUMPTION1$&#10;- $ASSUMPTION2$"
+            description="Spec: ASSUMPTIONS block"
+            toReformat="false"
+            toShortenFQNames="true">
+    <variable name="ASSUMPTION1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="ASSUMPTION2" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <context><option name="OTHER" value="true"/></context>
+  </template>
+
+  <template name="spec-sec"
+            value="SECURITY NOTE:&#10;- Boundary affected: $BOUNDARY$&#10;- Attack vectors considered: $VECTORS$&#10;- Mitigations applied: $MITIGATIONS$"
+            description="Spec: SECURITY NOTE block"
+            toReformat="false"
+            toShortenFQNames="true">
+    <variable name="BOUNDARY" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="VECTORS" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="MITIGATIONS" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <context><option name="OTHER" value="true"/></context>
+  </template>
+
+  <template name="spec-plan"
+            value="PLAN: $TASK$&#10;Goal: $GOAL$&#10;Constraints: $CONSTRAINTS$&#10;Blast Radius: $BLAST$&#10;Assumptions:&#10;- $ASS1$&#10;Phase 1: $PHASE1$&#10;  - $STEP1$&#10;  Verify: $VERIFY1$&#10;Questions before proceeding:&#10;- $Q1$"
+            description="Spec: PLAN block"
+            toReformat="false"
+            toShortenFQNames="true">
+    <variable name="TASK" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="GOAL" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="CONSTRAINTS" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="BLAST" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="ASS1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="PHASE1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="STEP1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="VERIFY1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="Q1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <context><option name="OTHER" value="true"/></context>
+  </template>
+
+  <template name="spec-review"
+            value="REVIEW: $FILE$&#10;Correctness:  $CORRECTNESS$&#10;Security:     $SECURITY$&#10;Performance:  $PERFORMANCE$&#10;Style:        $STYLE$&#10;Tests:        $TESTS$&#10;Docs:         $DOCS$&#10;Top 3 actions:&#10;1. $ACTION1$&#10;2. $ACTION2$&#10;3. $ACTION3$"
+            description="Spec: REVIEW block"
+            toReformat="false"
+            toShortenFQNames="true">
+    <variable name="FILE" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="CORRECTNESS" expression="" defaultValue="&quot;none found&quot;" alwaysStopAt="true"/>
+    <variable name="SECURITY" expression="" defaultValue="&quot;none found&quot;" alwaysStopAt="true"/>
+    <variable name="PERFORMANCE" expression="" defaultValue="&quot;none found&quot;" alwaysStopAt="true"/>
+    <variable name="STYLE" expression="" defaultValue="&quot;none found&quot;" alwaysStopAt="true"/>
+    <variable name="TESTS" expression="" defaultValue="&quot;adequate&quot;" alwaysStopAt="true"/>
+    <variable name="DOCS" expression="" defaultValue="&quot;adequate&quot;" alwaysStopAt="true"/>
+    <variable name="ACTION1" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="ACTION2" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <variable name="ACTION3" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true"/>
+    <context><option name="OTHER" value="true"/></context>
+  </template>
+
+</templateSet>

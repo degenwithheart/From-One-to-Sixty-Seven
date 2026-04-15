@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/settings.json.local
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+.venv/
+
+# Local overrides — do not commit personal spec customizations
+*.local.md
+CLAUDE.local.md
+AGENTS.local.md

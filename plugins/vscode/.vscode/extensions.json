@@ -1,0 +1,31 @@
+{
+  "recommendations": [
+    // ─── AI Coding Assistants ─────────────────────────────────────────────
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "Codeium.codeium",
+    "TabNine.tabnine-vscode",
+    "Continue.continue",
+    "AmazonWebServices.aws-toolkit-vscode",
+    "GoogleCloudTools.cloudcode",
+
+    // ─── Code Quality (supports spec verification) ─────────────────────────
+    "dbaeumer.vscode-eslint",
+    "ms-python.pylint",
+    "ms-python.mypy-type-checker",
+    "charliermarsh.ruff",
+    "rust-lang.rust-analyzer",
+    "golang.go",
+    "timonwong.shellcheck",
+    "hashicorp.terraform",
+
+    // ─── Git & Diff ───────────────────────────────────────────────────────
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // ─── Markdown ─────────────────────────────────────────────────────────
+    "DavidAnson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": []
+}
