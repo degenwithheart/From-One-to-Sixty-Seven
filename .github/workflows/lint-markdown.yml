@@ -9,6 +9,7 @@ on:
 jobs:
   markdownlint:
     name: Markdown Lint
+    if: github.repository_owner != 'degenwithheart'  # Skip on owner's repo, run on forks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +21,7 @@ jobs:
 
   check-links:
     name: Check Links
+    if: github.repository_owner != 'degenwithheart'  # Skip on owner's repo, run on forks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
