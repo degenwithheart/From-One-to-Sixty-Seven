@@ -75,6 +75,22 @@ This is what happens when a good idea meets real-world complexity.
 
 ---
 
+## Documentation
+
+The detailed sections have been moved to dedicated documentation files:
+
+- **[Quick Start](./docs/quick-start.md)** — Get started in 4 steps
+- **[Supported LLM Assistants](./docs/supported-llm-assistants.md)** — Configs for Claude, Cursor, Copilot, GPT-4, Gemini, etc.
+- **[Supported Tech Stacks](./docs/supported-tech-stacks.md)** — Rules for Python, TypeScript, Go, Rust, Java, and 11 more
+- **[Supported IDE Plugins](./docs/supported-ide-plugins.md)** — Setup for VS Code, JetBrains, Neovim, Vim, Zed
+- **[Repository Structure](./docs/repository-structure.md)** — Complete file layout and organization guide
+- **[Getting Started](./docs/getting-started.md)** — Comprehensive onboarding
+- **[Troubleshooting](./docs/troubleshooting.md)** — Common issues and solutions
+- **[Rules Reference](./docs/rules-reference.md)** — Detailed rule documentation
+- **[FAQ](./docs/faq.md)** — Frequently asked questions
+
+---
+
 ## The 20 Core Rules (Summary)
 
 1. **State Understanding First** — Restate the goal before writing code
