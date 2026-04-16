@@ -1,0 +1,155 @@
+# From One to Sixty-Seven: Next.js 14
+
+## Core Rules
+
+- Restate goal before coding
+- Minimal changes only
+- No hidden refactors
+- Declare assumptions
+- Verify before finishing
+- End with SUMMARY block
+
+## Next.js Specific
+
+### App Router
+- Use App Router for all new code
+- Place pages in `app/` directory
+- Use `layout.tsx` for shared UI
+- Use `loading.tsx` for loading states
+- Use `error.tsx` for error boundaries
+
+### Server vs Client Components
+- Server Components by default
+- Use `'use client'` ONLY for:
+  1. Browser APIs (window, localStorage, document)
+  2. Event handlers (onClick, onSubmit, etc.)
+  3. React hooks that need DOM (useEffect with refs)
+  4. Third-party components that need DOM access
+
+### Data Fetching
+- Fetch in Server Components when possible
+- Use `fetch()` with proper caching:
+  - Static: default (cached forever)
+  - Dynamic: `{ cache: 'no-store' }`
+  - ISR: `{ next: { revalidate: 3600 } }`
+- Use SWR/React Query only in Client Components
+
+### API Routes
+- Use Route Handlers in `app/api/`
+- Type the Request with `NextRequest`
+- Validate input with Zod
+- Return typed `NextResponse`
+- Handle errors with proper status codes
+
+### Performance (Always Use)
+- `next/image` instead of `<img>`
+- `next/link` for internal navigation (not `<a>`)
+- `next/script` for third-party scripts
+- `next/font` for font optimization
+
+### TypeScript
+- Strict mode enabled
+- Type page props with `PageProps` interface
+- Type layout props with `LayoutProps`
+- Type API route parameters
+- No `any` types
+
+### Testing
+- Test Server Components with integration tests
+- Test Client Components with React Testing Library
+- Test API routes with `node-mocks-http`
+
+### Styling
+- Tailwind CSS preferred
+- CSS Modules for component-specific styles
+- Global styles only in `globals.css`
+
+### Project Structure
+```
+app/                      # Next.js App Router
+├── layout.tsx           # Root layout
+├── page.tsx             # Home page
+├── loading.tsx          # Loading UI
+├── error.tsx            # Error boundary
+├── api/                 # Route handlers
+└── [routes]/            # Page routes
+
+components/              # React components
+├── ui/                 # Reusable UI
+├── forms/              # Form components
+└── layouts/            # Layout components
+
+lib/                     # Utilities
+├── db.ts              # Database client
+├── auth.ts            # Auth utilities
+└── utils.ts           # Helpers
+
+hooks/                   # Custom hooks
+public/                  # Static assets
+types/                   # TypeScript types
+```
+
+### Security
+- No secrets in client-side code
+- Use Server Actions for mutations
+- Validate all input with Zod
+- Sanitize user-generated content
+
+### Environment Variables
+- `NEXT_PUBLIC_*` only for client-side
+- Server variables without prefix
+- Validate with Zod in `lib/env.ts`
+
+## Code Patterns
+
+### Server Component
+```tsx
+// app/users/page.tsx
+async function UsersPage() {
+  const users = await fetchUsers()
+  return <UserList users={users} />
+}
+```
+
+### Client Component
+```tsx
+'use client'
+
+function UserForm() {
+  const [name, setName] = useState('')
+  return <input value={name} onChange={e => setName(e.target.value)} />
+}
+```
+
+### API Route
+```tsx
+// app/api/users/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function GET(request: NextRequest) {
+  const users = await getUsers()
+  return NextResponse.json({ users })
+}
+```
+
+### Server Action
+```tsx
+'use server'
+
+export async function createUser(formData: FormData) {
+  const user = await db.user.create({
+    data: Object.fromEntries(formData)
+  })
+  revalidatePath('/users')
+  return user
+}
+```
+
+## Final Statement
+
+SUMMARY:
+- What changed:
+- Why:
+- Verified:
+- Assumptions:
+- Risks:
