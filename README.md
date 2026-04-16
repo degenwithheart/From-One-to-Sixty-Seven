@@ -44,160 +44,34 @@ So this project expanded:
 
 **67 files. 4,500 lines.**
 
-The core philosophy never changed: *think first, change surgically, verify always*. Only the scope expanded — from a single assistant to every assistant, from one language to sixteen, from individual use to team-wide deployment.
-
 This is what happens when a good idea meets real-world complexity.
 
 ---
 
-## Supported LLM Assistants
+## At a Glance
 
-| Assistant | Config File | Config Directory | Notes |
-|---|---|---|---|
-| **Claude** (Anthropic) | [`CLAUDE.md`](CLAUDE.md) | [`.claude/`](.claude/) | Claude Code, claude.ai |
-| **Cursor** | [`CURSOR.md`](CURSOR.md) | [`.cursor/rules/`](.cursor/rules/) | `.cursorrules` also supported |
-| **GitHub Copilot** | [`COPILOT.md`](COPILOT.md) | [`.github/`](.github/) | Via `copilot-instructions.md` |
-| **Gemini** (Google) | [`GEMINI.md`](GEMINI.md) | — | Gemini Code Assist, Gemini CLI |
-| **GPT-4 / ChatGPT** | [`AGENTS.md`](AGENTS.md) | — | OpenAI Codex, ChatGPT, API |
-| **Amazon Q / CodeWhisperer** | [`CODEWHISPERER.md`](CODEWHISPERER.md) | — | AWS Q Developer |
-| **Codeium / Windsurf** | [`CODEIUM.md`](CODEIUM.md) | — | Windsurf editor, Codeium plugin |
-| **Tabnine** | [`TABNINE.md`](TABNINE.md) | — | Enterprise AI assistant |
-| **Aider** | [`AIDER.md`](AIDER.md) | — | CLI-first AI coding |
-| **OpenCode** | [`AGENTS.md`](AGENTS.md) | — | ACP-compatible agent |
+- **9** LLM assistants supported (Claude, Cursor, Copilot, GPT-4, Gemini, etc.)
+- **16** Tech stacks covered (Python, TypeScript, Go, Rust, Java, etc.)
+- **5** Major IDEs with plugin configs (VS Code, JetBrains, Neovim, Vim, Zed)
+- **5** Environment variants (Enterprise, Lean Startup, Security-Hardened, Test-First, Monorepo)
+- **27** Documentation files covering everything
+- **67** Total files, 4,500+ lines
 
 ---
 
-## Supported Tech Stacks
+## Quick Links
 
-| Stack | File |
-|---|---|
-| Python | [`stacks/python.md`](stacks/python.md) |
-| TypeScript / JavaScript | [`stacks/typescript.md`](stacks/typescript.md) |
-| Go | [`stacks/go.md`](stacks/go.md) |
-| Rust | [`stacks/rust.md`](stacks/rust.md) |
-| Java | [`stacks/java.md`](stacks/java.md) |
-| Kotlin | [`stacks/kotlin.md`](stacks/kotlin.md) |
-| C# / .NET | [`stacks/csharp.md`](stacks/csharp.md) |
-| Ruby | [`stacks/ruby.md`](stacks/ruby.md) |
-| PHP | [`stacks/php.md`](stacks/php.md) |
-| Swift | [`stacks/swift.md`](stacks/swift.md) |
-| Dart / Flutter | [`stacks/dart.md`](stacks/dart.md) |
-| C / C++ | [`stacks/cpp.md`](stacks/cpp.md) |
-| SQL | [`stacks/sql.md`](stacks/sql.md) |
-| Terraform | [`stacks/terraform.md`](stacks/terraform.md) |
-| Docker / Kubernetes | [`stacks/docker.md`](stacks/docker.md) |
-| Shell / Bash | [`stacks/shell.md`](stacks/shell.md) |
-
----
-
-## Supported IDE Plugins
-
-| IDE / Editor | Plugin Config |
-|---|---|
-| VS Code | [`plugins/vscode/`](plugins/vscode/) |
-| JetBrains (IntelliJ, PyCharm, etc.) | [`plugins/jetbrains/`](plugins/jetbrains/) |
-| Neovim | [`plugins/neovim/`](plugins/neovim/) |
-| Vim | [`plugins/vim/`](plugins/vim/) |
-| Zed | [`plugins/zed/`](plugins/zed/) |
-
----
-
-## Quick Start
-
-### 1. Pick your LLM and copy its spec file
-
-```bash
-# Claude / Claude Code
-cp CLAUDE.md /your-project/CLAUDE.md
-
-# Cursor
-cp CURSOR.md /your-project/.cursorrules
-cp -r .cursor/ /your-project/.cursor/
-
-# GitHub Copilot
-cp COPILOT.md /your-project/.github/copilot-instructions.md
-
-# Aider
-cp AIDER.md /your-project/CONVENTIONS.md
-```
-
-### 2. Add your stack addendum
-
-```bash
-# Example: Python project with Claude
-cat stacks/python.md >> /your-project/CLAUDE.md
-```
-
-### 3. Copy IDE plugin configs
-
-```bash
-# VS Code
-cp -r plugins/vscode/.vscode/ /your-project/.vscode/
-```
-
-### 4. Start a session with the kickoff template
-
-See [`templates/SESSION_KICKOFF.md`](templates/SESSION_KICKOFF.md).
-
----
-
-## Repository Structure
-
-```
-llm-engineering-spec/
-│
-├── # Root LLM spec files (one per assistant)
-├── CLAUDE.md                    ← Anthropic Claude
-├── AGENTS.md                    ← GPT-4, OpenCode, generic agents
-├── GEMINI.md                    ← Google Gemini
-├── COPILOT.md                   ← GitHub Copilot
-├── CURSOR.md                    ← Cursor editor
-├── CODEWHISPERER.md             ← Amazon Q / CodeWhisperer
-├── CODEIUM.md                   ← Codeium / Windsurf
-├── TABNINE.md                   ← Tabnine Enterprise
-├── AIDER.md                     ← Aider CLI
-│
-├── # Agent config directories
-├── .claude/
-│   ├── skills/                  ← Claude Code skills (auto-loaded)
-│   └── commands/                ← Claude Code slash commands
-├── .cursor/
-│   └── rules/                   ← Cursor rules (.mdc format)
-├── .github/
-│   └── copilot-instructions.md  ← GitHub Copilot instructions
-│
-├── # Tech stacks (16 stacks)
-├── stacks/
-│
-├── # IDE plugin configs
-├── plugins/
-│   ├── vscode/
-│   ├── jetbrains/
-│   ├── neovim/
-│   ├── vim/
-│   └── zed/
-│
-├── # Spec variants
-├── variants/
-│   ├── ENTERPRISE.md
-│   ├── LEAN_STARTUP.md
-│   ├── SECURITY_HARDENED.md
-│   ├── TEST_FIRST.md
-│   └── MONOREPO.md
-│
-├── # Templates
-├── templates/
-│   ├── SESSION_KICKOFF.md
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── SYSTEM_PROMPT.md
-│
-└── # Docs
-    └── docs/
-        ├── philosophy.md
-        ├── anti-patterns.md
-        ├── examples.md
-        └── llm-comparison.md
-```
+| I want to... | Go to... |
+|--------------|----------|
+| **Get started quickly** | [Quick Start](./docs/quick-start.md) |
+| **Understand the spec** | [Getting Started](./docs/getting-started.md) |
+| **Find my AI assistant** | [Supported LLM Assistants](./docs/supported-llm-assistants.md) |
+| **Find my programming language** | [Supported Tech Stacks](./docs/supported-tech-stacks.md) |
+| **Set up my IDE** | [Supported IDE Plugins](./docs/supported-ide-plugins.md) |
+| **Understand the file layout** | [Repository Structure](./docs/repository-structure.md) |
+| **Solve a problem** | [Troubleshooting](./docs/troubleshooting.md) |
+| **See all 20 rules** | [Rules Reference](./docs/rules-reference.md) |
+| **Have questions** | [FAQ](./docs/faq.md) |
 
 ---
 

@@ -267,13 +267,11 @@ fots report --output=compliance-report.md
 
 **Impact:** Enforces spec in CI/CD; enterprise adoption
 
-**Effort:** High (6-8 weeks)
-
 ---
 
 ## Phase 3: Advanced Features (Q3 2026)
 
-### 3.1 Multi-Agent Orchestration ⭐ VISIONARY
+### 3.1 Multi-Agent Orchestration
 
 **Goal:** Spec for coordinating multiple AI assistants
 
@@ -318,7 +316,7 @@ Final Output
 
 ---
 
-### 3.2 Universal Protocol ⭐ VISIONARY
+### 3.2 Universal Protocol
 
 **Goal:** Abstract spec into protocol-agnostic format
 
@@ -434,8 +432,6 @@ adapters:
 
 **Impact:** Enables offline/self-hosted usage
 
-**Effort:** Medium (create concise variants)
-
 ---
 
 ## Phase 4: Observability & Intelligence (Q4 2026)
@@ -472,8 +468,6 @@ fots.track({
 
 **Impact:** Prove ROI; identify improvement opportunities
 
-**Effort:** High (analytics infrastructure)
-
 ---
 
 ### 4.2 AI-Powered Spec Improvements
@@ -499,8 +493,6 @@ Human review: Approved for v2.2.0
 ```
 
 **Impact:** Self-improving specification
-
-**Effort:** Medium (after analytics in place)
 
 ---
 
