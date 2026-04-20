@@ -1,0 +1,177 @@
+{
+  "name": "fots-vscode",
+  "displayName": "FOTS - From One to Sixty-Seven",
+  "description": "AI coding assistant spec compliance for VS Code",
+  "version": "2.0.0",
+  "publisher": "degenwithheart",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "claude",
+    "copilot",
+    "cursor",
+    "gemini",
+    "spec",
+    "compliance"
+  ],
+  "activationEvents": [
+    "onCommand:fots.validate",
+    "onCommand:fots.insertSummary",
+    "workspaceContains:.fots/config.json"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fots.validate",
+        "title": "Validate Current File",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.validateWorkspace",
+        "title": "Validate Workspace",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.insertSummary",
+        "title": "Insert SUMMARY Block",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.insertAssumptions",
+        "title": "Insert ASSUMPTIONS Block",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.insertSecurityNote",
+        "title": "Insert SECURITY NOTE Block",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.checkUpdates",
+        "title": "Check for Updates",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.showStatus",
+        "title": "Show Status",
+        "category": "FOTS"
+      },
+      {
+        "command": "fots.init",
+        "title": "Initialize FOTS",
+        "category": "FOTS"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "fots.validate",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "fots.insertSummary",
+          "when": "editorTextFocus"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "fots.insertSummary",
+          "group": "9_cutcopypaste@5",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "fots.insertAssumptions",
+          "group": "9_cutcopypaste@6",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "go",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "rust",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "java",
+        "path": "./snippets/fots.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./snippets/fots.json"
+      }
+    ],
+    "configuration": {
+      "title": "FOTS",
+      "properties": {
+        "fots.enforceSummary": {
+          "type": "boolean",
+          "default": true,
+          "description": "Warn when SUMMARY block is missing"
+        },
+        "fots.enforceAssumptions": {
+          "type": "boolean",
+          "default": false,
+          "description": "Warn when ASSUMPTIONS block is missing"
+        },
+        "fots.maxChangeSize": {
+          "type": "number",
+          "default": 200,
+          "description": "Maximum recommended lines changed without SUMMARY"
+        },
+        "fots.autoUpdate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically check for FOTS updates"
+        }
+      }
+    },
+    "statusBarItem": {
+      "id": "fots.status",
+      "alignment": "right",
+      "priority": 100
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "20.x",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "dependencies": {
+    "semver": "^7.6.0"
+  }
+}

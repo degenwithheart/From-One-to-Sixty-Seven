@@ -1,0 +1,90 @@
+{
+  "FOTS Summary Block": {
+    "prefix": "fots-summary",
+    "description": "Insert FOTS SUMMARY block",
+    "body": [
+      "SUMMARY:",
+      "- What changed: ${1:description}",
+      "- Why: ${2:reason}",
+      "- Verified: ${3:tests passing}",
+      "- Assumptions: ${4:none}",
+      "- Risks: ${5:none}",
+      ""
+    ]
+  },
+  "FOTS Assumptions Block": {
+    "prefix": "fots-assumptions",
+    "description": "Insert FOTS ASSUMPTIONS block",
+    "body": [
+      "ASSUMPTIONS:",
+      "- ${1:assumption}",
+      ""
+    ]
+  },
+  "FOTS Security Note": {
+    "prefix": "fots-security",
+    "description": "Insert FOTS SECURITY NOTE block",
+    "body": [
+      "SECURITY NOTE:",
+      "- Boundary affected: ${1:auth/api/file system}",
+      "- Attack vectors considered: ${2:list}",
+      "- Mitigations applied: ${3:list}",
+      ""
+    ]
+  },
+  "FOTS Enterprise Summary": {
+    "prefix": "fots-enterprise-summary",
+    "description": "Insert FOTS Enterprise SUMMARY block",
+    "body": [
+      "ENTERPRISE SUMMARY:",
+      "- What changed: ${1:description}",
+      "- Schema impact: ${2:none}",
+      "- API contract impact: ${3:none}",
+      "- Security impact: ${4:none}",
+      "- Dependency changes: ${5:none}",
+      "- Rollback procedure: ${6:git revert}",
+      "- Human review required: ${7:no}",
+      ""
+    ]
+  },
+  "FOTS Security Review": {
+    "prefix": "fots-security-review",
+    "description": "Insert FOTS Security Review block",
+    "body": [
+      "SECURITY REVIEW:",
+      "- Touches auth/authz boundary: ${1:yes/no}",
+      "- Handles untrusted input: ${2:yes/no}",
+      "- Affects data at rest or in transit: ${3:yes/no}",
+      "- Attack vectors considered: ${4:list}",
+      "- Mitigations applied: ${5:list}",
+      ""
+    ]
+  },
+  "FOTS Schema Change": {
+    "prefix": "fots-schema-change",
+    "description": "Insert FOTS Schema Change block",
+    "body": [
+      "SCHEMA CHANGE:",
+      "- Table/collection affected: ${1:name}",
+      "- Nature of change: ${2:add/modify/remove}",
+      "- Migration plan: ${3:description}",
+      "- Rollback plan: ${4:description}",
+      "- Data integrity risk: ${5:low/medium/high}",
+      ""
+    ]
+  },
+  "FOTS Dependency Change": {
+    "prefix": "fots-dependency",
+    "description": "Insert FOTS Dependency Change block",
+    "body": [
+      "DEPENDENCY CHANGE:",
+      "- Package: ${1:name}",
+      "- Old version → New version: ${2:version}",
+      "- Reason: ${3:why}",
+      "- CVE check: ${4:pass/fail}",
+      "- Licence: ${5:unchanged/changed}",
+      "- Transitive changes: ${6:none/list}",
+      ""
+    ]
+  }
+}

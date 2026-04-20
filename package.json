@@ -3,12 +3,34 @@
   "version": "2.0.0",
   "description": "Production-grade behavioral contract for AI coding assistants — all major LLMs, stacks, and IDEs",
   "private": true,
+  "type": "module",
+  "bin": {
+    "fots": "./bin/fots.js"
+  },
   "scripts": {
     "lint": "markdownlint \"**/*.md\" --ignore node_modules",
-    "lint:fix": "markdownlint \"**/*.md\" --ignore node_modules --fix"
+    "lint:fix": "markdownlint \"**/*.md\" --ignore node_modules --fix",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "inquirer": "^9.2.12",
+    "node-fetch": "^3.3.2",
+    "ora": "^8.0.1",
+    "semver": "^7.6.0"
   },
   "devDependencies": {
-    "markdownlint-cli": "^0.48.0"
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.0",
+    "@types/semver": "^7.5.6",
+    "markdownlint-cli": "^0.48.0",
+    "typescript": "^5.3.3"
   },
   "keywords": [
     "llm",

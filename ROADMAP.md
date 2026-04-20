@@ -20,14 +20,16 @@ Become the universal standard for AI coding assistant behavioral contracts — a
 - ✅ Installation guides for 8 major tools
 - ✅ Command system (review, debug, plan)
 - ✅ Plugin configurations for 5 IDEs
+- ✅ **CLI Tool: `fots`** — Complete with init, generate, validate, update, template, list, status, doctor commands
+- ✅ **VS Code Extension** — Status bar, validation, diagnostics, snippets, command palette integration
 
-**Gap:** Tooling and automation around the spec
+**Status:** Phase 1 complete ✅
 
 ---
 
-## Phase 1: Tooling Foundation (Q1 2026)
+## Phase 1: Tooling Foundation (Q1 2026) ✅ COMPLETE
 
-### 1.1 CLI Tool: `fots` ⭐ PRIORITY
+### 1.1 CLI Tool: `fots` ⭐ PRIORITY — ✅ DONE
 
 **Goal:** Command-line interface for spec management
 
@@ -56,25 +58,20 @@ fots template --framework=nextjs --output=./my-app
 
 ---
 
-### 1.2 Framework-Specific Templates ⭐ PRIORITY
+### 1.2 Framework-Specific Templates ⭐ PRIORITY — ✅ DONE
 
 **Goal:** Pre-configured specs for popular frameworks
 
-**Initial Templates:**
+**Available Templates:**
 ```
 templates/frameworks/
-├── nextjs-fullstack/          # Next.js 14 + Prisma + tRPC
-│   ├── CLAUDE.md              # Framework-specific rules
-│   ├── .cursorrules
-│   ├── .github/copilot-instructions.md
-│   └── README.md              # Setup instructions
-│
-├── django-rest/               # Django + DRF + PostgreSQL
-├── fastapi-react/             # FastAPI + React + SQLAlchemy
-├── remix-prisma/              # Remix + Prisma + TypeScript
-├── laravel-vue/               # Laravel + Vue + MySQL
-├── rails-react/               # Rails + React + PostgreSQL
-└── astro-ssr/                 # Astro + SSR + Content Collections
+├── nextjs-fullstack/          # ✅ Next.js 14 + Prisma + tRPC
+├── django-rest/               # ⏳ Planned
+├── fastapi-react/             # ⏳ Planned
+├── remix-prisma/              # ⏳ Planned
+├── laravel-vue/               # ⏳ Planned
+├── rails-react/               # ⏳ Planned
+└── astro-ssr/                 # ⏳ Planned
 ```
 
 **Next.js Template Contents:**
@@ -115,29 +112,38 @@ templates/frameworks/
 
 ---
 
-### 1.3 VS Code Extension
+### 1.3 VS Code Extension — ✅ DONE
 
 **Goal:** Native IDE integration for spec compliance
 
 **Features:**
-- Status bar indicator (spec active/inactive)
-- Command palette integration:
+- ✅ Status bar indicator (spec active/inactive)
+- ✅ Command palette integration:
   - `FOTS: Validate Current File`
+  - `FOTS: Validate Workspace`
   - `FOTS: Insert SUMMARY Block`
   - `FOTS: Insert ASSUMPTIONS Block`
+  - `FOTS: Insert SECURITY NOTE Block`
   - `FOTS: Check for Updates`
-- Diagnostics panel:
+  - `FOTS: Show Status`
+  - `FOTS: Initialize FOTS`
+- ✅ Diagnostics panel:
   - Missing SUMMARY blocks
   - Missing assumption declarations
-  - Potential hidden refactors (large diffs)
-- Snippets:
-  - `spec-sum` → SUMMARY block
-  - `spec-ass` → ASSUMPTIONS block
-  - `sec-note` → SECURITY NOTE block
+  - Security violations (hardcoded secrets)
+- ✅ Snippets:
+  - `fots-summary` → SUMMARY block
+  - `fots-assumptions` → ASSUMPTIONS block
+  - `fots-security` → SECURITY NOTE block
+  - `fots-enterprise-summary` → Enterprise SUMMARY
+  - `fots-schema-change` → Schema change protocol
+  - `fots-dependency` → Dependency change protocol
 
 **Impact:** Real-time feedback where developers work
 
-**Effort:** Medium (3-4 weeks)
+**Effort:** Medium (3-4 weeks) ✅
+
+**Location:** `vscode-extension/` directory
 
 ---
 
