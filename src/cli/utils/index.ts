@@ -120,3 +120,48 @@ export function getGitRoot(cwd: string): string | null {
 export function isGitRepo(cwd: string): boolean {
   return getGitRoot(cwd) !== null;
 }
+
+/**
+ * Get list of files changed in a git diff.
+ * 
+ * @param diffRef - Git ref to diff against (e.g., 'HEAD~1', 'main')
+ * @returns Array of file paths
+ */
+export async function getChangedFiles(diffRef: string): Promise<string[]> {
+  try {
+    const { execSync } = require('child_process');
+    const result = execSync(`git diff --name-only ${diffRef}`, {
+      encoding: 'utf-8',
+      cwd: process.cwd(),
+    });
+    
+    return result
+      .split('\n')
+      .map((line: string) => line.trim())
+      .filter((line: string) => line.length > 0);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Get list of staged files in git.
+ * 
+ * @returns Array of file paths
+ */
+export async function getStagedFiles(): Promise<string[]> {
+  try {
+    const { execSync } = require('child_process');
+    const result = execSync('git diff --cached --name-only', {
+      encoding: 'utf-8',
+      cwd: process.cwd(),
+    });
+    
+    return result
+      .split('\n')
+      .map((line: string) => line.trim())
+      .filter((line: string) => line.length > 0);
+  } catch {
+    return [];
+  }
+}

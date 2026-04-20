@@ -1,0 +1,22 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running FOTS compliance checks on staged files..."
+
+# Check if fots is available
+if ! command -v fots &> /dev/null; then
+  # Try local fots
+  if [ -f "./bin/fots.js" ]; then
+    node ./bin/fots.js check --ci || exit 1
+  elif [ -f "./node_modules/.bin/fots" ]; then
+    ./node_modules/.bin/fots check --ci || exit 1
+  else
+    echo "⚠️  FOTS CLI not found. Skipping compliance checks."
+    echo "   Install with: npm install -g fots"
+    exit 0
+  fi
+else
+  fots check --ci || exit 1
+fi
+
+echo "✅ FOTS compliance checks passed!"

@@ -96,6 +96,36 @@ program
     await doctorCommand(options);
   });
 
+program
+  .command('check')
+  .description('Run compliance checks for CI/CD integration')
+  .option('--diff <commit>', 'Check files changed since commit')
+  .option('--files <files>', 'Comma-separated list of files to check')
+  .option('--rules <rules>', 'Rules to check (summary,assumptions,security,tests,secrets,minimal)', 'summary,assumptions,security,secrets,minimal')
+  .option('--format <format>', 'Output format (text,json,github,junit)', 'text')
+  .option('--output <file>', 'Output file for report')
+  .option('--max-change-size <lines>', 'Maximum allowed change size', '200')
+  .option('--fail-on-violation', 'Exit with error code if violations found', true)
+  .option('--ci', 'CI mode (check staged files)')
+  .action(async (options) => {
+    const { checkCommand } = await import('./commands/check.js');
+    await checkCommand(options);
+  });
+
+program
+  .command('report')
+  .description('Generate compliance report with coverage metrics')
+  .option('--format <format>', 'Report format (html,markdown,json,pdf)', 'html')
+  .option('--output <file>', 'Output file path')
+  .option('--since <date>', 'Show trends since date (YYYY-MM-DD)')
+  .option('--author <author>', 'Filter by specific author')
+  .option('--team', 'Include team statistics')
+  .option('--trend', 'Include trend analysis')
+  .action(async (options) => {
+    const { reportCommand } = await import('./commands/report.js');
+    await reportCommand(options);
+  });
+
 export function runCLI(): void {
   program.parse();
 }
